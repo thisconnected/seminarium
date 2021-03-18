@@ -1,0 +1,94 @@
+% Created 2021-03-15 pon 18:40
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Patryk Kaniewski}
+\date{\today}
+\title{Emulacja 8086 używając nowoczesnego jezyka C++}
+\hypersetup{
+ pdfauthor={Patryk Kaniewski},
+ pdftitle={Emulacja 8086 używając nowoczesnego jezyka C++},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Cel}
+\label{sec:org42f9c59}
+Zbudowanie biblioteki do emulacji 8086 w C++17, a nastepnie zbudowanie na jej podstawie emulatora 8086 ktory mozna byłoby wykonywać proste programy DOS.
+\section{Motywacja}
+\label{sec:orgf9c36b1}
+8086 jest jednoczesnie dostyć prostą architektura (ograniczona liczba instrukcji w porównaniu do nowoczesnego x86 z dużą liczbą rozszerzeń) i posiada tylko realmode
+\section{Używane technologie}
+\label{sec:org67100b1}
+\begin{itemize}
+\item C++17
+\item GCC
+\item cmake
+\item tinyasm
+\item ncurses
+\end{itemize}
+\section{Spis czynnosci}
+\label{sec:org80575b2}
+\begin{itemize}
+\item disasembler 8086
+\item zbudowanie toolchaina (uzywajac nasm i bash) do latwego assemblowania i uruchamiania kodu 8086
+\item zbudowanie systemu debugowania (register dump, memory dump, single step)
+\item interpretacja instrukcji 8086
+\item implementacja wywolan systemowych DOS/BIOS
+\item implementacja instrukcji zmiennoprzecinkowych 8087
+\item wolf3d
+\end{itemize}
+\section{Spis tresci}
+\label{sec:org16d53d7}
+\begin{enumerate}
+\item Wprowadzenie
+\item Budowa środowiska
+\begin{enumerate}
+\item Disasembler
+\item Toolchain i asembler
+\item Debugger
+\end{enumerate}
+\item Implementacja emulatora
+\item Urządzenia peryferyjne
+\begin{enumerate}
+\item Video mode
+\item Klawiatura
+\item Dyskietka
+\end{enumerate}
+\item Wyniki
+\item Podsumowanie
+\end{enumerate}
+\section{Referencje}
+\label{sec:org6719200}
+\subsection{SoK: All You Ever Wanted to Know About x86/x64 Binary Disassembly But Were Afraid to Ask}
+\label{sec:org879cf05}
+\url{https://arxiv.org/abs/2007.14266}
+\subsection{Verifying x86 Instruction Implementations}
+\label{sec:org976882f}
+\url{https://arxiv.org/abs/1912.10285}
+\subsection{The INTEL® 8087 numeric data processor}
+\label{sec:org00517cf}
+\url{https://dl.acm.org/doi/10.1145/1500518.1500674}
+\subsection{Design and Implementation Techniques of the 8086 C Decompiling System}
+\label{sec:orgafaa8b4}
+\url{https://apps.dtic.mil/sti/citations/ADA294633}
+\subsection{Formal Specification of the x86 Instruction Set Architecture}
+\label{sec:orgf1e4221}
+\url{https://publikationen.sulb.uni-saarland.de/handle/20.500.11880/26394}
+\end{document}

@@ -1,0 +1,45 @@
+#+TITLE: Emulacja 8086 używając nowoczesnego jezyka C++
+#+OPTIONS: toc:nil
+
+* Cel
+Zbudowanie biblioteki do emulacji 8086 w C++17, a nastepnie zbudowanie na jej podstawie emulatora 8086 ktory mozna byłoby wykonywać proste programy DOS.
+* Motywacja
+8086 jest jednoczesnie dostyć prostą architektura (ograniczona liczba instrukcji w porównaniu do nowoczesnego x86 z dużą liczbą rozszerzeń) i posiada tylko realmode bez seperacji uprawnien oraz ochrony pamięci.
+* Używane technologie
++ C++17
++ GCC
++ cmake
++ tinyasm
++ ncurses
+* Spis czynnosci
++ disasembler 8086
++ zbudowanie toolchaina (uzywajac nasm i bash) do latwego assemblowania i uruchamiania kodu 8086
++ zbudowanie systemu debugowania (register dump, memory dump, single step)
++ interpretacja instrukcji 8086
++ implementacja wywolan systemowych DOS/BIOS
++ implementacja instrukcji zmiennoprzecinkowych 8087
++ wolf3d
+* Spis tresci
+1. Wprowadzenie
+2. Budowa środowiska
+   1. Disasembler
+   2. Toolchain i asembler
+   3. Debugger
+3. Implementacja emulatora
+4. Urządzenia peryferyjne
+   1. Video mode
+   2. Klawiatura
+   3. Dyskietka
+5. Wyniki
+6. Podsumowanie
+* Referencje
+** SoK: All You Ever Wanted to Know About x86/x64 Binary Disassembly But Were Afraid to Ask
+https://arxiv.org/abs/2007.14266
+** Verifying x86 Instruction Implementations
+https://arxiv.org/abs/1912.10285
+** The INTEL® 8087 numeric data processor
+https://dl.acm.org/doi/10.1145/1500518.1500674
+** Design and Implementation Techniques of the 8086 C Decompiling System
+https://apps.dtic.mil/sti/citations/ADA294633
+** Formal Specification of the x86 Instruction Set Architecture
+https://publikationen.sulb.uni-saarland.de/handle/20.500.11880/26394

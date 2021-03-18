@@ -1,0 +1,34 @@
+#+TITLE: Towards a High-Performance RISC-V Emulator
+#+SUBTITLE: Dążąc do wydajnego emulatora RISC-V
+#+AUTHOR: Leandro Lupori
+#+AUTHOR: Vanderson Martins do Rosario
+#+AUTHOR: Edson Borin
+
+https://ieeexplore.ieee.org/document/8748908
+
+* Dążąc do wydajnego emulatora RISC-V
+RISC-V jest otwartą architekturą procesora która zwróciła uwage całego swiata poprzez swój szybki rozwój i adaptacje. Jest ona juz wspierana przez GCC, Clang, i Linux. Ponadto niedawno
+pojawiło się wiele emulatorów i symulatorów RISC-V, niestety żaden z nich nie jest wystarczająco wydajny. Zazwyczaj, najczęściej stosowaną i najszybszą metodą implementacji takich emulatorów jest DBT - dynamiczna translacja maszynowa (/z ang.Dynamic Binary Translation/), która wymaga dobrej jakości translacji by uzyskać wysoką wydajność. W tej pracy zbadamy czy wysokiej jakości translacja kodu maszynowego RISC-V jest możliwa. W tym celu użylyliśmy SBT - statycznej translacji binarnej (/z ang. Static Binary Translation/) by sprawdzić jakość jaka może być uzyskana przy tłumaczeniu RISC-V na x86 i ARM. Nasze wyniki experymentalne pokazują że nasz SBT potrafi stworzyć wysokiej jakości kod, otrzymując tylko 12%/35% nizsza wydajnośc w porównaniu do kompilowanego kodu x86/ARM. Jest to lepszy wynik niż inne bardziej znane dynamiczne translatory RISC-V takie jak RV8 i QEMU. Ponieważ dynamiczna translacja jest silnie związana z jakościa translacji, nasz statyczny translator pokazuje że istnieją możliwości stworzenia bardziej wydajnych dynamicznych translatorów RISC-V niż obecnie istniejące
+* Spis treści
+1.  Wprowadzenie
+2. Translacja kodu maszynowego i Wyzwania
+3. RISC-V
+4. Powiązane prace
+5. Dynamiczna translacja RISC-V
+ 1. niezlinkowany kod maszynowy jako wejscie
+ 2. mapowanie rejestrów
+6. Środowisko eksperymentalne
+ 1. Metodologia pomiarowa
+ 2. GCC vs Clang i opcje operacji zmiennoprzecinkowych
+ 3. Konfiguracja RISC-V
+7. Wyniki eksperymentów
+  1. GCC vs Clang
+  2. RISC-V vs openISA
+  3. Nasz SBT vs dostępne DBT
+8. Wnioski
+* Przedstawienie wyników
+Wyniki sa przedstawione w postaci tabeli porównujących programy kompilowane na x86/ARM do programów statycznie przetłumaczonych za pomocą nowego SBT oraz istniejących translatorów (RV8 i QEMU). Porównywane są różne ustawienia kompilatorów i ich wpływ na wyniki oraz porównanie do translacji openISA
+[[./figure4.png]]
+[[./figure5.png]]
+* Interpretacja wyników
+Po porównaniu stworzonego silnika translacji statycznej stwierdzili że zbudowanie wydajnego emulatora RISC-V na sprzęcie dostępnym dzisiaj (W wiekszosci x86 i ARM). Oczekują rownież używanie tej otwartej architektury jako IR (kod binarny gotowy do translacji wynikowej)

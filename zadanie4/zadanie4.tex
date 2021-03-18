@@ -1,0 +1,43 @@
+% Created 2021-03-08 pon 19:07
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=3cm]{geometry}
+\author{Maximilian Strauch}
+\date{\today}
+\title{Apple ][ Emulation on an AVR Microcontroller}
+\hypersetup{
+ pdfauthor={Maximilian Strauch},
+ pdftitle={Apple ][ Emulation on an AVR Microcontroller},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\pagebreak
+\section{Streszczenie}
+\label{sec:orgda49e29}
+Apple II był jednym z pierwszych masowo produkowanych mikrokomputerów, został on zaprojektowany przez Steve Wozniaka oraz Steve Jobs. Sercem tego produktu jest 8 bitowy procesor 6502 produkowany przez MOS Technologies. Procesor ten znalazł się również miedzy innymi w takich produktach jak Atari 2600, Nintendo NES, Comodore 64 i BBC Micro. W dzisiejszych czasach wersje tego procesora oraz innych mikroprocesorów z tych czasów (np. motorola 6800) nadal są stosowane w niektórych systemach wbudowanych
+
+Motywacja tego projektu jest rozważenie aspektów sprzętowych informatyki w dzisiejszych czasach. Systemy wbudowane i związane z nimi mikrokontrolerów znajdują sie obecnie każdym urządzeniu elektronicznym które otaczają nas na codzień. Od pralek do elektronicznych pieców, można poznać w jaki sposób komputery działają i jak "widzą" świat którym sterują. Takie mikrokontrolery są dużo łatwiejsze do zrozumienia niż złożone architektury jak x86. Przy mikrokontrolerach można również zapoznać się z innym elementem systemów komputerowych takich jak komunikacja pomiędzy różnymi elementami za pomocą np. UART, SPI, TWI. Te protokoły jednak nie dotyczą tylko systemów wbudowanych: czujniki temperatury dla mikroprocesorów często komunikują sie za pomocą TWI, a karty SD mogą być sterowane pomocą SPI.
+
+Ninjejsza praca inżynierska zagłębia tematykę emulacji Apple II na obecnej generacji wbudowanych mikrokontrolerów - Atmel AVR. Emulacja jest procesem simulacji sprzętu aby użyć oprogramowania zkompilowanego na specyficzny sprzęt, używając komputera który jest niekompatybilny. W tym przypadku jest to oprogramowanie napisane dla Apple II działa tylko na komputerze Apple II. Tworząc emulator osoba musi dokładnie symulować procesor oraz inne funkcje sprzętowe aby pozwolić oryginalnemu oprogramowaniu na Apple II działać na takim emulatorze.
+
+Największym problemem w emulacji całego mikrokomputera jest platforma emulacji. Atmel AVR jest tylko kilkanaście razy szybszy od emulowanego procesora. Wymaga to bardzo wydajnej emulacji procesora i zarządzania pamięcią oraz emulacji innych funkcji sprzętowych gotowego zestawu. Gdy weźmiemy pod uwage potrzebe emulacji wszystkich zachowań sprzętowych oraz funkcji (np. ekran), możemy zobaczyć że budżet obliczeniowy zaczyna się znacznie zmniejszać. Innymi problemami jest realizacja architektury von Neumana na mikrokontrolerze architektury Harvardskiej oraz zaprojektowanie oraz wykonanie prototypu przenośnej wersji takiej maszyny emulacyjnej.
+
+W ninejszej pracy przedstawiony będzie proces budowy przenośnego emulatora Apple II obejmujące wszystkie aspekty od zaprojektowania oprogramowania poprzez rozwiązania sprzętowe a kończąc na implementacji prototypu.
+\end{document}
